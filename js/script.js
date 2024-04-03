@@ -7,6 +7,7 @@ const nav = document.querySelector('.nav');
 const body = document.body;
 const email = document.querySelector('.form-contact__input-email')
 const textarea = document.querySelector('.form-contact__textarea')
+const cursor = document.querySelector('.cursor')
 
 addEventListener("click", openBurger);
 addEventListener('scroll', headerView)
@@ -52,13 +53,17 @@ function openBurger(e) {
 function headerView(e) {
    if ((!header.classList.contains('bottom')) && window.scrollY > (header.offsetHeight / 4)) {
       header.classList.add('bottom')
-      console.log(23);
    }
    if ((header.classList.contains('bottom')) && window.scrollY < header.offsetHeight) {
       header.classList.remove('bottom')
-      console.log(236);
    }
 }
 
 // =====================================================
 
+addEventListener("mousemove", function (e) {
+   if (window.innerWidth >= 1024) {
+      cursor.style.top = window.scrollY + e.clientY - 100 + "px"
+      cursor.style.left = e.clientX - 100 + "px"
+   }
+})
