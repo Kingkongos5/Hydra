@@ -770,28 +770,29 @@
 })();
 
 
+if (window.innerWidth >= 1024) {
+   SmoothScroll({
+      // Время скролла 400 = 0.4 секунды
+      animationTime: 800,
+      // Размер шага в пикселях
+      stepSize: 60,
 
-SmoothScroll({
-   // Время скролла 400 = 0.4 секунды
-   animationTime: 800,
-   // Размер шага в пикселях
-   stepSize: 60,
+      // Дополнительные настройки:
 
-   // Дополнительные настройки:
+      // Ускорение
+      accelerationDelta: 23,
+      // Максимальное ускорение
+      accelerationMax: 2,
 
-   // Ускорение
-   accelerationDelta: 23,
-   // Максимальное ускорение
-   accelerationMax: 2,
+      // Поддержка клавиатуры
+      keyboardSupport: true,
+      // Шаг скролла стрелками на клавиатуре в пикселях
+      arrowScroll: 250,
 
-   // Поддержка клавиатуры
-   keyboardSupport: true,
-   // Шаг скролла стрелками на клавиатуре в пикселях
-   arrowScroll: 250,
-
-   // Pulse (less tweakable)
-   // ratio of "tail" to "acceleration"
-   pulseAlgorithm: true,
-   pulseScale: 4,
-   pulseNormalize: 1,
-})
+      // Pulse (less tweakable)
+      // ratio of "tail" to "acceleration"
+      pulseAlgorithm: true,
+      pulseScale: 4,
+      pulseNormalize: 1,
+   })
+}

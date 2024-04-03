@@ -16,6 +16,137 @@ var Swiper=function(){"use strict";function e(e){return null!==e&&"object"==type
 
 
 
+const howSwiper = new Swiper('.how__slider', {
+   // Optional parameters
+   direction: 'horizontal',
+   loop: false,
+
+   // Navigation arrows
+   navigation: {
+      nextEl: '.how__slider-button-next',
+      prevEl: '.how__slider-button-prev',
+   },
+   breakpoints: {
+      0: {
+         slidesPerView: 1,
+         slidesPerGroup: 1,
+         spaceBetween: 20,
+      },
+      475:{
+         slidesPerView: 1,
+         slidesPerGroup: 1,
+         spaceBetween: 20,
+      },
+      629: {
+         slidesPerView: 2,
+         slidesPerGroup: 1,
+         spaceBetween: 0,
+      },
+      875: {
+         slidesPerView: 3,
+         slidesPerGroup: 1,
+         spaceBetween: 0,
+      },
+      1024: {
+         slidesPerView: 4,
+         slidesPerGroup: 1,
+         spaceBetween: 89,
+      }
+   },
+   speed: 600,
+});
+const usedSwiper = new Swiper('.used__slider', {
+   // Optional parameters
+   direction: 'horizontal',
+   loop: false,
+
+   // Navigation arrows
+   navigation: {
+      nextEl: '.used__slider-button-next',
+      prevEl: '.used__slider-button-prev',
+   },
+   breakpoints: {
+      0: {
+         slidesPerView: 2,
+         slidesPerGroup: 1,
+         spaceBetween: 20,
+      },
+      475:{
+         slidesPerView: 2,
+         slidesPerGroup: 1,
+         spaceBetween: 30,
+      },
+      629: {
+         slidesPerView: 3,
+         slidesPerGroup: 1,
+         spaceBetween: 30,
+      },
+      768: {
+         slidesPerView: 4,
+         slidesPerGroup: 1,
+         spaceBetween: 50,
+      },
+      1024: {
+         slidesPerView: 4,
+         slidesPerGroup: 1,
+         spaceBetween: 72,
+      },
+      1700: {
+         slidesPerView: 5,
+         slidesPerGroup: 1,
+         spaceBetween: 72,
+      },
+      1920: {
+         slidesPerView: 6,
+         slidesPerGroup: 1,
+         spaceBetween: 72,
+      },
+   },
+   speed: 800,
+   loop:true,
+   autoplay: {
+      delay: 800
+   }
+});
+
+const whySwiper = new Swiper('.why__slider', {
+   // Optional parameters
+   direction: 'horizontal',
+   loop: false,
+
+   // Navigation arrows
+   navigation: {
+      nextEl: '.why__slider-button-next',
+      prevEl: '.why__slider-button-prev',
+   },
+   breakpoints: {
+      0: {
+         slidesPerView: 1,
+         slidesPerGroup: 1,
+         spaceBetween: 20,
+      },
+      475:{
+         slidesPerView: 1,
+         slidesPerGroup: 1,
+         spaceBetween: 30,
+      },
+      768: {
+         slidesPerView: 1,
+         slidesPerGroup: 1,
+         spaceBetween: 20,
+      },
+      1024: {
+         slidesPerView: 4,
+         slidesPerGroup: 1,
+         spaceBetween: 11,
+         loop: false,
+      }
+   },
+   spaceBetween: 0,
+   speed: 1000,
+});
+
+
 const swiper = new Swiper('.swiper', {
    // Optional parameters
    direction: 'horizontal',
@@ -30,10 +161,15 @@ const swiper = new Swiper('.swiper', {
       0: {
          slidesPerView: 1,
          slidesPerGroup: 1,
-         spaceBetween: 50,
+         spaceBetween: 20,
+      },
+      475:{
+         slidesPerView: 1.3,
+         slidesPerGroup: 1,
+         spaceBetween: 30,
       },
       768: {
-         slidesPerView: 1,
+         slidesPerView: 1.6,
          slidesPerGroup: 1,
          spaceBetween: 50,
       },
@@ -46,7 +182,6 @@ const swiper = new Swiper('.swiper', {
    spaceBetween: 0,
    speed: 800,
 });
-
 
 
 /* Поєкранна прокрутка
