@@ -10,7 +10,8 @@ const textarea = document.querySelector('.form-contact__textarea')
 const cursor = document.querySelector('.cursor')
 
 addEventListener("click", openBurger);
-addEventListener('scroll', headerView)
+addEventListener('scroll', headerView);
+
 email.addEventListener('input', function () {
    if (email.value.length > 22) {
       if (email.offsetWidth <= 467) {
@@ -24,7 +25,8 @@ email.addEventListener('input', function () {
          email.style.fontSize = "16px"
       }
    }
-})
+});
+
 textarea.addEventListener('input', function () {
    console.log(textarea.value.length);
    if (textarea.value.length > 125) {
@@ -34,7 +36,7 @@ textarea.addEventListener('input', function () {
          textarea.style.fontSize = "16px"
       }
    }
-})
+});
 
 function openBurger(e) {
 
@@ -50,11 +52,11 @@ function openBurger(e) {
    }
 }
 
-function headerView(e) {
-   if ((!header.classList.contains('bottom')) && window.scrollY > (header.offsetHeight / 4)) {
+function headerView() {
+   if ((!header.classList.contains('bottom')) && window.scrollY > (header.offsetHeight / 2)) {
       header.classList.add('bottom')
    }
-   if ((header.classList.contains('bottom')) && window.scrollY < header.offsetHeight) {
+   if ((header.classList.contains('bottom')) && window.scrollY < (header.offsetHeight / 2)) {
       header.classList.remove('bottom')
    }
 }
@@ -70,7 +72,6 @@ addEventListener("mousemove", function (e) {
 
 document.documentElement.classList.contains('loader') || window.addEventListener('load', function () {
    setTimeout((function () {
-      window.scrollTo(0, 0)
       document.documentElement.classList.add('loaded')
    }), 0)
 })
@@ -95,3 +96,28 @@ const allA = items.querySelectorAll('a').forEach((link) => {
       }
    });
 });
+
+// =======================
+
+const observ = new IntersectionObserver((entries) => {
+   entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+         if ((entry.target.classList.contains('header') || entry.target.classList.contains('hero')) && entry.target.classList.contains('anim')) {
+            setTimeout(function (){
+               body.classList.remove('lockk')
+               entry.target.classList.remove('anim')
+            }, 2150)
+            observ.unobserve(entry.target);
+         } else {
+            entry.target.classList.remove('anim')
+            observ.unobserve(entry.target)
+         }
+      }
+   })
+}, {
+   threshold: 0.49,
+});
+
+const animElement = document.querySelectorAll('.anim').forEach((anim) => {
+   observ.observe(anim)
+})
